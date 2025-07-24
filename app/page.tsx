@@ -166,32 +166,29 @@ export default function PremiumQuinceaneraInvitation() {
           <div className="relative z-10 bg-white rounded-xl shadow-2xl p-6 md:p-10 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto
                           flex flex-col items-center text-center animate-fade-in"
                style={{ minHeight: '400px' }}> {/* Ajusta minHeight para la tarjeta */}
-
-            {/* Sello Dorado - usar placeholder-logo.png como ejemplo */}
-            <img src="/placeholder-logo.png" alt="Sello Invitación" className="w-20 h-20 -mt-16 object-contain" />
-
           
             {/* Nombres de las Quinceañeras - Mayte equivalente (AHORA ES UNA IMAGEN) */}
             {/* Se reemplaza el h1 por la imagen directamente */}
-            <img src="/emmaypau.png" alt="Isabella & Sophia XV Aniversario" className="w-48 mb-4 object-contain" />
+            <img src="/emmaypau.png" alt="emma y pau XV Aniversario" className="w-48 mb-4 object-contain" />
 
             {/* Texto "Con la Bendición de Dios..." */}
             <p className="text-base font-dancing text-slate-700 leading-relaxed mb-6">
-              Con la Bendición de Dios y el amor que nuestra familia nos ha dado
+              Dando gracias a Dios por la vida y por el amor que nuestra familia nos ha dado, queremos compartir con ustedes
+              este momento tan especial para nosotras.
             </p>
 
             {/* Mis padres */}
-            <p className="text-lg font-playfair font-semibold text-slate-800 mb-2">Mis padres</p>
+            <p className="text-lg font-playfair font-semibold text-slate-800 mb-2">Nuestros Padres</p>
             <p className="text-sm font-playfair uppercase text-slate-600 mb-4">
-              TERESA DE JESÚS VALDEZ DÍAZ<br/>
-              JESÚS SALVADOR ELIZONDO HERRERA
+              Sandra Castillo Anaya<br/>
+              Juan de Jesús Mendoza Camarena
             </p>
 
-            {/* Texto principal de invitación - Me siento feliz de llegar... */}
-            <p className="text-lg font-dancing italic text-slate-700 leading-relaxed max-w-md mx-auto">
-              Me siento feliz de llegar a este momento de mi vida, el día que dejaré atrás mi infancia
-              para comenzar un nuevo viaje. Y porque son parte de mi vida es mi deseo que compartan
-              conmigo en este día tan especial.
+            {/* Mis padrinos*/}
+            <p className="text-lg font-playfair font-semibold text-slate-800 mb-2">Nuestros Padrinos</p>
+            <p className="text-sm font-playfair uppercase text-slate-600 mb-4">
+              Maria Luisa Castillo Anaya<br/>
+              Edgar Garcia Herrera
             </p>
           </div>
         </header>
@@ -205,7 +202,7 @@ export default function PremiumQuinceaneraInvitation() {
 
         <div className="relative z-10 text-center text-white">
           {/* Texto "Mi Gran Día" */}
-          <p className="text-2xl md:text-4xl font-great-vibes mb-2">Mi Gran Día</p>
+          <p className="text-2xl md:text-4xl font-great-vibes mb-2">Nuestro Gran Día</p>
           {/* Fecha de la quinceañera */}
           <p className="text-lg md:text-2xl font-playfair mb-8">viernes 13 septiembre 2025</p> {/* Ajusta la fecha real */}
 
@@ -238,14 +235,10 @@ export default function PremiumQuinceaneraInvitation() {
       <div className="container mx-auto px-6 py-12 relative z-10 max-w-4xl">
         {/* Elegant Photo Gallery */}
         <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-playfair text-slate-700 mb-2">Nuestras Quinceañeras</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
-          </div>
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {[
-              { name: "Isabella", image: "/placeholder.svg?height=500&width=400&text=Isabella" },
-              { name: "Sophia", image: "/placeholder.svg?height=500&width=400&text=Sophia" },
+              { name: "Emma", image: "/emma1.jpg" },
+              { name: "Paulina", image: "/pau1.jpg" },
             ].map((person, index) => (
               <div key={index} className="group relative">
                 <div className="relative overflow-hidden rounded-lg shadow-2xl">
@@ -377,7 +370,6 @@ export default function PremiumQuinceaneraInvitation() {
               </div>
               <p className="text-lg font-playfair text-slate-700 mb-6">Formal</p>
               <p className="text-sm font-playfair text-slate-600 leading-relaxed">
-              Sugerimos vestimenta formal. <br />
               Evitar colores dorados
               </p>
             </CardContent>
@@ -444,7 +436,7 @@ export default function PremiumQuinceaneraInvitation() {
                 </p>
                 {/* Dirección del hotel */}
                 <p className="text-sm font-playfair text-slate-600 leading-relaxed mb-6">
-                  Colima 93-Sur, Col. San Antonio, Tepic, Nayarit.
+                  Colima 93 Sur, Col. San Antonio, Tepic, Nayarit.
                 </p>
 
                 {/* Botón para reservar */}
@@ -530,7 +522,7 @@ export default function PremiumQuinceaneraInvitation() {
           <div className="mb-6">
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto mb-4"></div>
             <p className="text-lg font-playfair text-slate-700 mb-2">
-              Esperamos compartir este momento especial con usted
+              Esperamos compartir este momento especial con ustedes
             </p>
             <p className="text-sm font-playfair text-slate-500 tracking-wide">
               Con cariño, Familia Mendoza Castillo
@@ -539,11 +531,11 @@ export default function PremiumQuinceaneraInvitation() {
           <div className="flex justify-center gap-6 text-slate-400">
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4" />
-              <span className="text-sm font-playfair">+81 1123 0266</span>
+              <span className="text-sm font-playfair">+81 1123 0163</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
-              <span className="text-sm font-playfair">eventos@familia.com</span>
+              <span className="text-sm font-playfair">castillo.sandra.anaya@gmail.com</span>
             </div>
           </div>
         </footer>
