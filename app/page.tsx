@@ -235,27 +235,41 @@ export default function PremiumQuinceaneraInvitation() {
       <div className="container mx-auto px-6 py-12 relative z-10 max-w-4xl">
         {/* Elegant Photo Gallery */}
         <section className="mb-20">
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            {[
-              { name: "Emma", image: "/emma1.jpg" },
-              { name: "Paulina", image: "/pau1.jpg" },
-            ].map((person, index) => (
-              <div key={index} className="group relative">
-                <div className="relative overflow-hidden rounded-lg shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
-                  <img
-                    src={person.image || "/placeholder.svg"}
-                    alt={person.name}
-                    className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute bottom-6 left-6 z-20">
-                    <h3 className="text-2xl font-dancing text-white mb-1">{person.name}</h3>
-                    <div className="w-12 h-0.5 bg-white/60"></div>
+          {/* Definición de las fotos de las quinceañeras */}
+          {/* Asegúrate de que estas rutas de imagen sean correctas en tu carpeta public */}
+          {(() => { // Usamos una IIFE para definir la constante dentro del renderizado
+            const allPhotos = [
+              { src: "/emma1.jpg", alt: "Emma 1" },
+              { src: "/emma2.jpg", alt: "Emma 2" },
+              { src: "/emma3.jpg", alt: "Emma 3" },
+              { src: "/pau1.jpg", alt: "Paulina 1" },
+              { src: "/pau2.jpg", alt: "Paulina 2" },
+              { src: "/pau3.jpg", alt: "Paulina 3" },
+            ];
+
+            return (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto"> {/* Cuadrícula responsive */}
+                {allPhotos.map((photo, index) => (
+                  <div key={index} className="group relative">
+                    <div className="relative overflow-hidden rounded-lg shadow-2xl">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
+                      <img
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105" // Altura ajustada
+                      />
+                      {/* Texto de la festejada (opcional, puedes adaptarlo o quitarlo) */}
+                      <div className="absolute bottom-6 left-6 z-20">
+                        {/* Puedes mostrar el nombre aquí si lo deseas, ej. {photo.name} */}
+                        <h3 className="text-2xl font-dancing text-white mb-1">{photo.alt.split(' ')[0]}</h3> {/* Extrae el nombre de alt */}
+                        <div className="w-12 h-0.5 bg-white/60"></div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            );
+          })()}
         </section>
 
         {/* Premium Event Information */}
@@ -378,7 +392,7 @@ export default function PremiumQuinceaneraInvitation() {
 
         <section className="mb-20">
           <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl max-w-2xl mx-auto min-h-[350px]"> {/* min-h para asegurar espacio */}
-            <CardContent className="p-8 text-center flex flex-col h-full"> {/* Eliminado justify-between de aquí */}
+            <CardContent className="p-8 text-center flex flex-col h-full justify-between">
               {/* Contenido superior de la tarjeta: Título y texto principal */}
               <div>
                 <div className="mb-8">
@@ -403,8 +417,12 @@ export default function PremiumQuinceaneraInvitation() {
                   <Mail className="w-20 h-20 text-slate-600" />
                 </div>
 
-                {/* Columna derecha para el botón (ocupando la mitad derecha y alineando a la derecha) */}
-                <div className="flex-1 flex justify-end items-end"> {/* flex-1 para ocupar espacio, justify-end para alinear a la derecha, items-end para alinear abajo */}
+                {/* Columna derecha para el botón y la imagen pequeña */}
+                <div className="flex-1 flex flex-col justify-end items-end"> {/* flex-col para apilar verticalmente, justify-end para empujar al fondo, items-end para alinear a la derecha */}
+                  {/* Imagen pequeña (arriba del botón) */}
+                  <img src="/liverpool.png" alt="Imagen pequeña" className="w-12 h-12 object-contain mb-2" /> {/* Ajusta w- y h- y la ruta */}
+
+                  {/* Botón Liverpool con link Mesa de regalos */}
                   <Button asChild variant="outline" className="border-rose-500 text-rose-500 hover:bg-rose-50 hover:text-rose-600 font-light h-10 px-4 shadow-md hover:shadow-lg transition-all duration-300 tracking-wide">
                     <a
                       href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51671268"
