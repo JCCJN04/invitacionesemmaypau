@@ -18,22 +18,21 @@ export default function PremiumQuinceaneraInvitation() {
     seconds: 0,
   })
 
-  // formData ahora solo incluye 'name' y 'guests'
+  // formData solo incluye 'name' y 'guests'
   const [formData, setFormData] = useState({
     name: "",
     guests: "",
   })
 
-  // Nuevos estados para la pantalla de inicio
-  const [showInvitationContent, setShowInvitationContent] = useState(false); // Cambiado a showInvitationContent para claridad
+  // Estados para la pantalla de inicio
+  const [showInvitationContent, setShowInvitationContent] = useState(false);
   const [showViewInvitationButton, setShowViewInvitationButton] = useState(false);
 
-  const targetDate = new Date('2025-09-13T00:00:00'); //
+  const targetDate = new Date('2025-09-13T00:00:00'); // [cite: uploaded:INVITACION/app/page.tsx]
 
   // Lógica para la cuenta regresiva
   useEffect(() => {
-    // Solo iniciar el timer si el contenido principal está visible
-    if (!showInvitationContent) return;
+    if (!showInvitationContent) return; // Solo iniciar el timer si el contenido principal está visible
 
     const timer = setInterval(() => {
       const now = new Date().getTime()
@@ -54,7 +53,7 @@ export default function PremiumQuinceaneraInvitation() {
     }, 1000)
 
     return () => clearInterval(timer)
-  }, [targetDate, showInvitationContent]); // Dependencia showInvitationContent
+  }, [targetDate, showInvitationContent]);
 
   // Lógica para la animación de la pantalla de inicio
   useEffect(() => {
@@ -87,7 +86,7 @@ export default function PremiumQuinceaneraInvitation() {
 
       if (response.ok && result.success) {
         alert('¡Confirmación enviada exitosamente!');
-        setFormData({ name: '', guests: '' }); // Limpiar el formulario
+        setFormData({ name: '', guests: '' });
       } else {
         alert(`Error al enviar confirmación: ${result.message || 'Intente de nuevo.'}`);
       }
@@ -103,7 +102,7 @@ export default function PremiumQuinceaneraInvitation() {
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-rose-50 to-amber-50 relative overflow-hidden">
         {/* Imagen de fondo a pantalla completa con animaciones */}
         <img
-          src="/foto.jpg" // Ruta de tu imagen
+          src="/foto.jpg" // Ruta de tu imagen para la pantalla de inicio
           alt="Las Festejadas"
           className="fixed inset-0 object-cover w-full h-full
                      animate-fade-in animate-scale-in" // Aplica las animaciones
@@ -153,53 +152,90 @@ export default function PremiumQuinceaneraInvitation() {
         ))}
       </div>
 
-      <div className="container mx-auto px-6 py-12 relative z-10 max-w-4xl">
-        {/* Premium Header */}
-        <header className="text-center mb-16 relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-100/30 to-transparent blur-2xl"></div>
-          <div className="relative">
-            <div className="mb-8">
-              <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto mb-6"></div>
-              {/* Nombres de las Quinceañeras con tipografía extravagante */}
-              <h1 className="text-5xl md:text-7xl font-great-vibes text-slate-800 mb-4 tracking-tight">
-                Isabella <span className="text-rose-600">&</span> Sophia
-              </h1>
-              <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
-            </div>
-            {/* Texto de la invitación mejorado */}
-            <p className="text-xl md:text-3xl font-playfair text-transparent bg-clip-text bg-gradient-to-r from-rose-500 to-quince-purple-500 max-w-3xl mx-auto leading-loose p-6 border border-rose-200 rounded-lg shadow-lg backdrop-blur-sm bg-white/50 animate-fade-in text-center">
-              Nos complacemos en invitarle a celebrar este momento tan especial en nuestras vidas, donde la tradición y la
-              elegancia se unen en una velada inolvidable.
+      {/* Sección de la Cabecera/Invitación Principal - Reestructurada para el efecto de sobre */}
+      {/* El header ahora ocupa todo el ancho y alto de la pantalla, con la imagen de fondo */}
+      <header className="relative w-full overflow-hidden mb-16
+                           bg-[url('/fondoinvitacion.jpeg')] bg-cover bg-center bg-no-repeat
+                           min-h-screen flex items-center justify-center p-4 md:p-8"> {/* Ajustado min-h y bg-full para que la imagen se vea completa */}
+
+          {/* Capa de brillo sobre el fondo, si es necesario */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-100/20 to-transparent blur-2xl"></div>
+
+          {/* La "Tarjeta Blanca" superpuesta, que contiene el texto de la invitación */}
+          {/* Reducido max-w para que el fondo del sobre sea visible a los lados */}
+          <div className="relative z-10 bg-white rounded-xl shadow-2xl p-6 md:p-10 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto
+                          flex flex-col items-center text-center animate-fade-in"
+               style={{ minHeight: '400px' }}> {/* Ajusta minHeight para la tarjeta */}
+
+            {/* Sello Dorado - usar placeholder-logo.png como ejemplo */}
+            <img src="/placeholder-logo.png" alt="Sello Invitación" className="w-20 h-20 -mt-16 object-contain" />
+
+          
+            {/* Nombres de las Quinceañeras - Mayte equivalente (AHORA ES UNA IMAGEN) */}
+            {/* Se reemplaza el h1 por la imagen directamente */}
+            <img src="/emmaypau.png" alt="Isabella & Sophia XV Aniversario" className="w-48 mb-4 object-contain" />
+
+            {/* Texto "Con la Bendición de Dios..." */}
+            <p className="text-base font-dancing text-slate-700 leading-relaxed mb-6">
+              Con la Bendición de Dios y el amor que nuestra familia nos ha dado
+            </p>
+
+            {/* Mis padres */}
+            <p className="text-lg font-playfair font-semibold text-slate-800 mb-2">Mis padres</p>
+            <p className="text-sm font-playfair uppercase text-slate-600 mb-4">
+              TERESA DE JESÚS VALDEZ DÍAZ<br/>
+              JESÚS SALVADOR ELIZONDO HERRERA
+            </p>
+
+            {/* Texto principal de invitación - Me siento feliz de llegar... */}
+            <p className="text-lg font-dancing italic text-slate-700 leading-relaxed max-w-md mx-auto">
+              Me siento feliz de llegar a este momento de mi vida, el día que dejaré atrás mi infancia
+              para comenzar un nuevo viaje. Y porque son parte de mi vida es mi deseo que compartan
+              conmigo en este día tan especial.
             </p>
           </div>
         </header>
 
-        {/* Premium Countdown */}
-        <section className="mb-20">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-playfair text-slate-700 mb-2">Cuenta Regresiva</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+      {/* Sección del Contador - Reestructurada para el efecto de fondo de imagen */}
+      <section className="relative w-full overflow-hidden mb-20
+                          bg-[url('/foto1.jpg')] bg-cover bg-center bg-no-repeat
+                          min-h-[300px] flex items-center justify-center p-4"> {/* Ajusta min-h según tu imagen */}
+        {/* Capa de superposición para mejorar la legibilidad del texto del contador */}
+        <div className="absolute inset-0 bg-black/40"></div> {/* Oscurece el fondo */}
+
+        <div className="relative z-10 text-center text-white">
+          {/* Texto "Mi Gran Día" */}
+          <p className="text-2xl md:text-4xl font-great-vibes mb-2">Mi Gran Día</p>
+          {/* Fecha de la quinceañera */}
+          <p className="text-lg md:text-2xl font-playfair mb-8">viernes 13 septiembre 2025</p> {/* Ajusta la fecha real */}
+
+          {/* Grid del Contador */}
+          <div className="grid grid-cols-4 gap-4 max-w-xl mx-auto">
             {[
-              { value: timeLeft.days, label: "Días" },
-              { value: timeLeft.hours, label: "Horas" },
-              { value: timeLeft.minutes, label: "Minutos" },
-              { value: timeLeft.seconds, label: "Segundos" },
+              { value: timeLeft.days, label: "DÍAS" },
+              { value: timeLeft.hours, label: "HRS" },
+              { value: timeLeft.minutes, label: "MINS" },
+              { value: timeLeft.seconds, label: "SEGS" },
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white/80 backdrop-blur-sm border border-slate-200/50 rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105"
+                className="flex flex-col items-center justify-center
+                           bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4 shadow-lg"
               >
-                <div className="text-3xl md:text-4xl font-playfair text-slate-800 mb-2 tabular-nums">
+                <div className="text-3xl sm:text-4xl font-playfair tabular-nums mb-1">
                   {item.value.toString().padStart(2, "0")}
                 </div>
-                <div className="text-sm font-playfair text-slate-500 uppercase tracking-wider">{item.label}</div>
+                <div className="text-xs sm:text-sm font-playfair uppercase tracking-wider">
+                  {item.label}
+                </div>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
+      {/* Main content container - Este div ahora contiene el resto de las secciones */}
+      <div className="container mx-auto px-6 py-12 relative z-10 max-w-4xl">
         {/* Elegant Photo Gallery */}
         <section className="mb-20">
           <div className="text-center mb-12">
@@ -231,39 +267,34 @@ export default function PremiumQuinceaneraInvitation() {
 
         {/* Premium Event Information */}
         <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-playfair text-slate-700 mb-2">Programa del Evento</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
-          </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Ceremony */}
             <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
               <CardContent className="p-8">
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-gradient-to-br from-rose-100 to-rose-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-br from-rose-500 to-rose-600 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm font-playfair">✝</span>
-                    </div>
+                    <img
+                    src="/iglesia.svg" // <--- ¡REEMPLAZA ESTO CON LA RUTA REAL DE TU SVG!
+                    alt="Icono de Iglesia"
+                    className="w-8 h-8 object-contain text-rose-600" />
                   </div>
                   <h3 className="text-xl font-playfair text-slate-800 mb-2">Ceremonia Religiosa</h3>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 text-slate-600">
+                    <MapPin className="w-4 h-4 text-rose-500" />
+                    <span className="font-playfair">
+                      Templo Expiatorio de nuestra señora del Carmen
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 text-slate-600">
                     <Calendar className="w-4 h-4 text-rose-500" />
-                    <span className="font-playfair">Sábado, 15 de Junio 2024</span>
+                    <span className="font-playfair">Av. México Nte. 117 <br /> Tepic, Nayarit.</span>
                   </div>
                   <div className="flex items-center gap-3 text-slate-600">
                     <Clock className="w-4 h-4 text-rose-500" />
-                    <span className="font-playfair">18:00 hrs</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-600">
-                    <MapPin className="w-4 h-4 text-rose-500" />
-                    <span className="font-playfair">
-                      Parroquia San José
-                      <br />
-                      Av. Principal 123, Centro
-                    </span>
+                    <span className="font-playfair">19:30 hrs</span>
                   </div>
                   {/* Botón para ver el mapa de la Iglesia */}
                   <div className="mt-6">
@@ -286,30 +317,30 @@ export default function PremiumQuinceaneraInvitation() {
             <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
               <CardContent className="p-8">
                 <div className="text-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-amber-100 to-amber-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm font-playfair">🥂</span>
-                    </div>
+                  <div className="w-16 h-16 bg-gradient-to-br from-rose-100 to-rose-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <img
+                    src="/festejo.svg" // <--- ¡REEMPLAZA ESTO CON LA RUTA REAL DE TU SVG!
+                    alt="Icono de Iglesia"
+                    className="w-8 h-8 object-contain text-rose-600" />
                   </div>
                   <h3 className="text-xl font-playfair text-slate-800 mb-2">Recepción</h3>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 text-slate-600">
+                    <MapPin className="w-4 h-4 text-amber-500" />
+                    <span className="font-playfair">
+                      Salón de Eventos María Magdalena
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 text-slate-600">
                     <Calendar className="w-4 h-4 text-amber-500" />
-                    <span className="font-playfair">Sábado, 15 de Junio 2024</span>
+                    <span className="font-playfair">San Luis Nte 224, Col. San Antonio <br />
+                     Tepic, Nayarit.</span>
                   </div>
                   <div className="flex items-center gap-3 text-slate-600">
                     <Clock className="w-4 h-4 text-amber-500" />
-                    <span className="font-playfair">20:30 hrs</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-slate-600">
-                    <MapPin className="w-4 h-4 text-amber-500" />
-                    <span className="font-playfair">
-                      Salón Elegancia Premium
-                      <br />
-                      Boulevard de los Sueños 456
-                    </span>
+                    <span className="font-playfair">21:00 hrs</span>
                   </div>
                   {/* Botón para ver el mapa del Salón */}
                   <div className="mt-6">
@@ -335,25 +366,111 @@ export default function PremiumQuinceaneraInvitation() {
           <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl max-w-2xl mx-auto">
             <CardContent className="p-8 text-center">
               <div className="mb-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-slate-100 to-slate-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <div className="w-8 h-8 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full flex items-center justify-center">
-                    <span className="text-white text-sm font-playfair">👔</span>
-                  </div>
-                </div>
                 <h3 className="text-xl font-playfair text-slate-800 mb-2">Código de Vestimenta</h3>
-                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-slate-400 to-transparent mx-auto"></div>
+              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-slate-400 to-transparent mx-auto mb-6"></div>
+              {/* Reemplaza esto con la ruta real a tu imagen */}
+              <img
+              src="/pareja.png"
+              alt="Código de Vestimenta Sugerido"
+              className="w-full rounded-md shadow-md mb-6"
+              />
               </div>
-              <p className="text-lg font-playfair text-slate-700 mb-6">Formal / Cocktail</p>
-              <div className="flex justify-center gap-3 mb-6">
-                <div className="w-6 h-6 bg-slate-800 rounded-full shadow-md"></div>
-                <div className="w-6 h-6 bg-rose-600 rounded-full shadow-md"></div>
-                <div className="w-6 h-6 bg-amber-600 rounded-full shadow-md"></div>
-                <div className="w-6 h-6 bg-slate-600 rounded-full shadow-md"></div>
-              </div>
+              <p className="text-lg font-playfair text-slate-700 mb-6">Formal</p>
               <p className="text-sm font-playfair text-slate-600 leading-relaxed">
-                Sugerimos vestimenta formal en tonos elegantes. <br />
-                Evitar colores blancos y tonos muy llamativos.
+              Sugerimos vestimenta formal. <br />
+              Evitar colores dorados
               </p>
+            </CardContent>
+          </Card>
+        </section>
+
+        <section className="mb-20">
+          <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl max-w-2xl mx-auto min-h-[350px]"> {/* min-h para asegurar espacio */}
+            <CardContent className="p-8 text-center flex flex-col h-full"> {/* Eliminado justify-between de aquí */}
+              {/* Contenido superior de la tarjeta: Título y texto principal */}
+              <div>
+                <div className="mb-8">
+                  <h3 className="text-xl font-playfair text-slate-800 mb-2">Sugerencia de regalo</h3>
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-slate-400 to-transparent mx-auto mb-6"></div>
+                </div>
+
+                {/* Texto principal de sugerencia */}
+                <p className="text-sm font-playfair text-slate-600 leading-relaxed mb-4">
+                  Su presencia es nuestro mayor regalo, pero si<br />
+                  desean hacernos un presente, un sobre será<br />
+                  bienvenido o ponemos a su disposición<br />
+                  nuestra mesa de regalos.
+                </p>
+              </div>
+
+              {/* Contenido inferior: dividiendo el espacio con flexbox */}
+              <div className="flex w-full mt-auto py-4"> {/* mt-auto para empujar hacia abajo, py-4 para espacio vertical */}
+                {/* Columna izquierda para el icono (ocupando la mitad izquierda y centrándose en ella) */}
+                <div className="flex-1 flex justify-center items-center"> {/* flex-1 para ocupar espacio, justify-center para centrar el icono */}
+                  {/* Icono de sobre (Mail de Lucide-React) */}
+                  <Mail className="w-20 h-20 text-slate-600" />
+                </div>
+
+                {/* Columna derecha para el botón (ocupando la mitad derecha y alineando a la derecha) */}
+                <div className="flex-1 flex justify-end items-end"> {/* flex-1 para ocupar espacio, justify-end para alinear a la derecha, items-end para alinear abajo */}
+                  <Button asChild variant="outline" className="border-rose-500 text-rose-500 hover:bg-rose-50 hover:text-rose-600 font-light h-10 px-4 shadow-md hover:shadow-lg transition-all duration-300 tracking-wide">
+                    <a
+                      href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51671268"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Mesa de Regalos
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        <section className="mb-20">
+          <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl max-w-2xl mx-auto">
+            <CardContent className="p-8 text-center">
+              <div className="mb-8">
+                <h3 className="text-xl font-playfair text-slate-800 mb-2">Sugerencia de hospedaje</h3>
+                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-slate-400 to-transparent mx-auto mb-6"></div>
+              </div>
+
+              {/* Contenido de la sugerencia de hospedaje */}
+              <div className="flex flex-col items-center justify-center mb-6">
+                {/* Texto del hotel */}
+                <p className="text-sm font-playfair text-slate-600 leading-relaxed mb-2">
+                  Hotel City Express
+                </p>
+                {/* Dirección del hotel */}
+                <p className="text-sm font-playfair text-slate-600 leading-relaxed mb-6">
+                  Colima 93-Sur, Col. San Antonio, Tepic, Nayarit.
+                </p>
+
+                {/* Botón para reservar */}
+                <Button asChild className="w-full max-w-xs bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-light h-12 shadow-lg hover:shadow-xl transition-all duration-300 tracking-wide mb-4">
+                  {/* Asegúrate de que este <a> sea el ÚNICO y DIRECTO hijo de Button */}
+                  <a
+                    href="https://www.marriott.com/es/event-reservations/reservation-link.mi?id=1752859500993&key=GRP&guestreslink2=true&app=resvlink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Reservar
+                  </a>
+                </Button>
+
+                {/* Botón para Ver en Mapa */}
+                <Button asChild variant="outline" className="w-full max-w-xs border-blue-500 text-blue-500 hover:bg-blue-50 hover:text-blue-600 font-light h-12 shadow-md hover:shadow-lg transition-all duration-300 tracking-wide">
+                  {/* Asegúrate de que este <a> sea el ÚNICO y DIRECTO hijo de Button */}
+                  <a
+                    href="https://maps.app.goo.gl/uBFyGy8YSHbJWRzQ8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ver en Mapa
+                  </a>
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </section>
@@ -379,7 +496,6 @@ export default function PremiumQuinceaneraInvitation() {
                     required
                   />
                 </div>
-                {/* Campos de correo electrónico y teléfono eliminados según la solicitud previa */}
                 <div>
                   <Select
                     value={formData.guests}
@@ -416,6 +532,19 @@ export default function PremiumQuinceaneraInvitation() {
             <p className="text-lg font-playfair text-slate-700 mb-2">
               Esperamos compartir este momento especial con usted
             </p>
+            <p className="text-sm font-playfair text-slate-500 tracking-wide">
+              Con cariño, Familia Mendoza Castillo
+            </p>
+          </div>
+          <div className="flex justify-center gap-6 text-slate-400">
+            <div className="flex items-center gap-2">
+              <Phone className="w-4 h-4" />
+              <span className="text-sm font-playfair">+81 1123 0266</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail className="w-4 h-4" />
+              <span className="text-sm font-playfair">eventos@familia.com</span>
+            </div>
           </div>
         </footer>
       </div>
