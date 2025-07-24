@@ -28,7 +28,7 @@ export default function PremiumQuinceaneraInvitation() {
   const [showInvitationContent, setShowInvitationContent] = useState(false);
   const [showViewInvitationButton, setShowViewInvitationButton] = useState(false);
 
-  const targetDate = new Date('2025-09-13T00:00:00'); // [cite: uploaded:INVITACION/app/page.tsx]
+  const targetDate = new Date('2025-09-13T00:00:00'); //
 
   // Lógica para la cuenta regresiva
   useEffect(() => {
@@ -96,6 +96,17 @@ export default function PremiumQuinceaneraInvitation() {
     }
   };
 
+  // Datos de las fotos para la galería
+  const quinceaneraPhotos = [
+    { src: "/emma1.jpg", alt: "Emma 1" },
+    { src: "/emma2.jpg", alt: "Emma 2" },
+    { src: "/emma3.jpg", alt: "Emma 3" },
+    { src: "/pau1.jpg", alt: "Paulina 1" },
+    { src: "/pau2.jpg", alt: "Paulina 2" },
+    { src: "/pau3.jpg", alt: "Paulina 3" },
+  ];
+
+
   // Renderizado condicional: si showInvitationContent es falso, muestra la pantalla de inicio
   if (!showInvitationContent) {
     return (
@@ -129,8 +140,8 @@ export default function PremiumQuinceaneraInvitation() {
   }
 
   // Si showInvitationContent es verdadero, se renderiza el contenido principal de la invitación
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-rose-50 to-amber-50 relative">
+  return ( // <-- Esta es la línea 142 de tu error
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-rose-50 to-amber-50 relative"> {/* Esta es la línea 143 */}
       {/* Elegant background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
@@ -166,7 +177,10 @@ export default function PremiumQuinceaneraInvitation() {
           <div className="relative z-10 bg-white rounded-xl shadow-2xl p-6 md:p-10 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto
                           flex flex-col items-center text-center animate-fade-in"
                style={{ minHeight: '400px' }}> {/* Ajusta minHeight para la tarjeta */}
-          
+
+            {/* Sello Dorado - usar placeholder-logo.png como ejemplo */}
+            <img src="/placeholder-logo.png" alt="Sello Invitación" className="w-20 h-20 -mt-16 object-contain" />
+
             {/* Nombres de las Quinceañeras - Mayte equivalente (AHORA ES UNA IMAGEN) */}
             {/* Se reemplaza el h1 por la imagen directamente */}
             <img src="/emmaypau.png" alt="emma y pau XV Aniversario" className="w-48 mb-4 object-contain" />
@@ -216,8 +230,7 @@ export default function PremiumQuinceaneraInvitation() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center
-                           bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4 shadow-lg"
+                className="bg-white/20 backdrop-blur-sm rounded-lg p-3 sm:p-4 shadow-lg"
               >
                 <div className="text-3xl sm:text-4xl font-playfair tabular-nums mb-1">
                   {item.value.toString().padStart(2, "0")}
@@ -235,8 +248,12 @@ export default function PremiumQuinceaneraInvitation() {
       <div className="container mx-auto px-6 py-12 relative z-10 max-w-4xl">
         {/* Elegant Photo Gallery */}
         <section className="mb-20">
-          {/* Definición de las fotos de las quinceañeras */}
-          {/* Asegúrate de que estas rutas de imagen sean correctas en tu carpeta public */}
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-playfair text-slate-700 mb-2">Nuestras Quinceañeras</h2>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
+          </div>
+
+          {/* Galería de fotos - Cuadrícula con 3 fotos por niña */}
           {(() => { // Usamos una IIFE para definir la constante dentro del renderizado
             const allPhotos = [
               { src: "/emma1.jpg", alt: "Emma 1" },
@@ -260,7 +277,6 @@ export default function PremiumQuinceaneraInvitation() {
                       />
                       {/* Texto de la festejada (opcional, puedes adaptarlo o quitarlo) */}
                       <div className="absolute bottom-6 left-6 z-20">
-                        {/* Puedes mostrar el nombre aquí si lo deseas, ej. {photo.name} */}
                         <h3 className="text-2xl font-dancing text-white mb-1">{photo.alt.split(' ')[0]}</h3> {/* Extrae el nombre de alt */}
                         <div className="w-12 h-0.5 bg-white/60"></div>
                       </div>
@@ -274,6 +290,10 @@ export default function PremiumQuinceaneraInvitation() {
 
         {/* Premium Event Information */}
         <section className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-playfair text-slate-700 mb-2">Programa del Evento</h2>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
+          </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {/* Ceremony */}
             <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
@@ -281,11 +301,11 @@ export default function PremiumQuinceaneraInvitation() {
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-gradient-to-br from-rose-100 to-rose-200 rounded-full flex items-center justify-center mx-auto mb-4">
                     <img
-                    src="/iglesia.svg" // <--- ¡REEMPLAZA ESTO CON LA RUTA REAL DE TU SVG!
-                    alt="Icono de Iglesia"
-                    className="w-8 h-8 object-contain text-rose-600" />
+                      src="/iglesia.svg" // <--- ¡REEMPLAZA ESTO CON LA RUTA REAL DE TU SVG!
+                      alt="Icono de Iglesia"
+                      className="w-8 h-8 object-contain text-rose-600" />
                   </div>
-                  <h3 className="text-xl font-playfair text-slate-800 mb-2">Ceremonia Religiosa</h3>
+                  <h3 className="text-xl font-playfair text-slate-800 mb-2">Misa</h3>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
                 </div>
                 <div className="space-y-4">
@@ -305,7 +325,7 @@ export default function PremiumQuinceaneraInvitation() {
                   </div>
                   {/* Botón para ver el mapa de la Iglesia */}
                   <div className="mt-6">
-                    <Button asChild>
+                    <Button asChild className="bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-light h-12 shadow-lg hover:shadow-xl transition-all duration-300 tracking-wide">
                       <a
                         href="https://maps.app.goo.gl/ST9yq8rh9vif4WzD8"
                         target="_blank"
@@ -326,9 +346,9 @@ export default function PremiumQuinceaneraInvitation() {
                 <div className="text-center mb-8">
                   <div className="w-16 h-16 bg-gradient-to-br from-rose-100 to-rose-200 rounded-full flex items-center justify-center mx-auto mb-4">
                     <img
-                    src="/festejo.svg" // <--- ¡REEMPLAZA ESTO CON LA RUTA REAL DE TU SVG!
-                    alt="Icono de Iglesia"
-                    className="w-8 h-8 object-contain text-rose-600" />
+                      src="/festejo.svg" // <--- ¡REEMPLAZA ESTO CON LA RUTA REAL DE TU SVG!
+                      alt="Icono de Iglesia"
+                      className="w-8 h-8 object-contain text-rose-600" />
                   </div>
                   <h3 className="text-xl font-playfair text-slate-800 mb-2">Recepción</h3>
                   <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto"></div>
@@ -343,7 +363,7 @@ export default function PremiumQuinceaneraInvitation() {
                   <div className="flex items-center gap-3 text-slate-600">
                     <Calendar className="w-4 h-4 text-amber-500" />
                     <span className="font-playfair">San Luis Nte 224, Col. San Antonio <br />
-                     Tepic, Nayarit.</span>
+                      Tepic, Nayarit.</span>
                   </div>
                   <div className="flex items-center gap-3 text-slate-600">
                     <Clock className="w-4 h-4 text-amber-500" />
@@ -351,7 +371,7 @@ export default function PremiumQuinceaneraInvitation() {
                   </div>
                   {/* Botón para ver el mapa del Salón */}
                   <div className="mt-6">
-                    <Button asChild>
+                    <Button asChild className="bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-light h-12 shadow-lg hover:shadow-xl transition-all duration-300 tracking-wide">
                       <a
                         href="https://maps.app.goo.gl/d8ar4D9w8MvLLUnW6"
                         target="_blank"
@@ -374,25 +394,26 @@ export default function PremiumQuinceaneraInvitation() {
             <CardContent className="p-8 text-center">
               <div className="mb-8">
                 <h3 className="text-xl font-playfair text-slate-800 mb-2">Código de Vestimenta</h3>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-slate-400 to-transparent mx-auto mb-6"></div>
-              {/* Reemplaza esto con la ruta real a tu imagen */}
-              <img
-              src="/pareja.png"
-              alt="Código de Vestimenta Sugerido"
-              className="w-full rounded-md shadow-md mb-6"
-              />
+                <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-slate-400 to-transparent mx-auto mb-6"></div>
+                {/* Reemplaza esto con la ruta real a tu imagen */}
+                <img
+                  src="/pareja.png"
+                  alt="Código de Vestimenta Sugerido"
+                  className="w-full rounded-md shadow-md mb-6"
+                />
               </div>
               <p className="text-lg font-playfair text-slate-700 mb-6">Formal</p>
               <p className="text-sm font-playfair text-slate-600 leading-relaxed">
-              Evitar colores dorados
+                Evitar colores dorados
               </p>
             </CardContent>
           </Card>
         </section>
 
+        {/* Sugerencia de Regalo */}
         <section className="mb-20">
           <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl max-w-2xl mx-auto min-h-[350px]"> {/* min-h para asegurar espacio */}
-            <CardContent className="p-8 text-center flex flex-col h-full justify-between">
+            <CardContent className="p-8 text-center flex flex-col h-full"> {/* Eliminado justify-between de aquí */}
               {/* Contenido superior de la tarjeta: Título y texto principal */}
               <div>
                 <div className="mb-8">
@@ -420,7 +441,7 @@ export default function PremiumQuinceaneraInvitation() {
                 {/* Columna derecha para el botón y la imagen pequeña */}
                 <div className="flex-1 flex flex-col justify-end items-end"> {/* flex-col para apilar verticalmente, justify-end para empujar al fondo, items-end para alinear a la derecha */}
                   {/* Imagen pequeña (arriba del botón) */}
-                  <img src="/liverpool.png" alt="Imagen pequeña" className="w-12 h-12 object-contain mb-2" /> {/* Ajusta w- y h- y la ruta */}
+                  <img src="/liverpool.png" alt="Logo Liverpool" className="w-12 h-12 object-contain mb-2" /> {/* Ajusta w- y h- y la ruta */}
 
                   {/* Botón Liverpool con link Mesa de regalos */}
                   <Button asChild variant="outline" className="border-rose-500 text-rose-500 hover:bg-rose-50 hover:text-rose-600 font-light h-10 px-4 shadow-md hover:shadow-lg transition-all duration-300 tracking-wide">
@@ -438,6 +459,7 @@ export default function PremiumQuinceaneraInvitation() {
           </Card>
         </section>
 
+        {/* Sugerencia de Hospedaje */}
         <section className="mb-20">
           <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl max-w-2xl mx-auto">
             <CardContent className="p-8 text-center">
@@ -454,12 +476,11 @@ export default function PremiumQuinceaneraInvitation() {
                 </p>
                 {/* Dirección del hotel */}
                 <p className="text-sm font-playfair text-slate-600 leading-relaxed mb-6">
-                  Colima 93 Sur, Col. San Antonio, Tepic, Nayarit.
+                  Colima 93-Sur, San Antonio, 63159 Tepic, Nay.
                 </p>
 
                 {/* Botón para reservar */}
-                <Button asChild className="w-full max-w-xs bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-light h-12 shadow-lg hover:shadow-xl transition-all duration-300 tracking-wide mb-4">
-                  {/* Asegúrate de que este <a> sea el ÚNICO y DIRECTO hijo de Button */}
+                <Button asChild className="w-full max-w-xs bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-light h-12 shadow-lg hover:shadow-xl transition-all duration-300 tracking-wide mb-4">
                   <a
                     href="https://www.marriott.com/es/event-reservations/reservation-link.mi?id=1752859500993&key=GRP&guestreslink2=true&app=resvlink"
                     target="_blank"
@@ -470,8 +491,7 @@ export default function PremiumQuinceaneraInvitation() {
                 </Button>
 
                 {/* Botón para Ver en Mapa */}
-                <Button asChild variant="outline" className="w-full max-w-xs border-blue-500 text-blue-500 hover:bg-blue-50 hover:text-blue-600 font-light h-12 shadow-md hover:shadow-lg transition-all duration-300 tracking-wide">
-                  {/* Asegúrate de que este <a> sea el ÚNICO y DIRECTO hijo de Button */}
+                <Button asChild variant="outline" className="w-full max-w-xs border-rose-500 text-rose-500 hover:bg-rose-50 hover:text-rose-600 font-light h-12 shadow-md hover:shadow-lg transition-all duration-300 tracking-wide">
                   <a
                     href="https://maps.app.goo.gl/uBFyGy8YSHbJWRzQ8"
                     target="_blank"
