@@ -1,9 +1,10 @@
 // INVITACION/app/layout.tsx
 import type { Metadata } from 'next'
 import './globals.css'
+import { Toaster } from "@/components/ui/toaster" // Importa el Toaster aquí
 
 export const metadata: Metadata = {
-  title: 'XV',
+  title: 'Emma y Pau',
   description: 'inviticion emma y pau',
   generator: '',
 }
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
+        <Toaster /> {/* Añade el Toaster aquí */}
         {/* Etiqueta de audio para la música de fondo */}
         <audio id="background-music" src="/Christina Perri - A Thousand Years.webm" autoPlay loop playsInline></audio>
         {/* Script para intentar la reproducción automática si es bloqueada por el navegador */}

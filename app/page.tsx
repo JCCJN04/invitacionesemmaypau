@@ -98,9 +98,9 @@ export default function PremiumQuinceaneraInvitation() {
 
   // Datos de las fotos para la galería
   const quinceaneraPhotos = [
-    { src: "/emma1.jpg", alt: "Emma 1" },
+    { src: "/emma6.jpg", alt: "Emma 1" },
     { src: "/emma2.jpg", alt: "Emma 2" },
-    { src: "/emma3.jpg", alt: "Emma 3" },
+    { src: "/emma1.jpg", alt: "Emma 3" },
     { src: "/emma4.jpg", alt: "Emma 4" },
     { src: "/emma5.jpg", alt: "Emma 5" },
     { src: "/pau3.jpg", alt: "Paulina 1" },
@@ -117,7 +117,7 @@ export default function PremiumQuinceaneraInvitation() {
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-rose-50 to-amber-50 relative overflow-hidden">
         {/* Imagen de fondo a pantalla completa con animaciones */}
         <img
-          src="/foto.jpg" // Ruta de tu imagen para la pantalla de inicio
+          src="/b.jpg" // Ruta de tu imagen para la pantalla de inicio
           alt="Las Festejadas"
           className="fixed inset-0 object-cover w-full h-full
                      animate-fade-in animate-scale-in" // Aplica las animaciones
@@ -145,8 +145,7 @@ export default function PremiumQuinceaneraInvitation() {
 
   // Si showInvitationContent es verdadero, se renderiza el contenido principal de la invitación
   return ( // <-- Esta es la línea 142 de tu error
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-rose-50 to-amber-50 relative"> {/* Esta es la línea 143 */}
-      {/* Elegant background pattern */}
+    <div className="min-h-screen bg-[url('/fondoinvitacion.jpeg')] bg-cover bg-center bg-fixed relative">      {/* Elegant background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.15)_1px,transparent_0)] bg-[length:20px_20px]"></div>
       </div>
@@ -253,9 +252,9 @@ export default function PremiumQuinceaneraInvitation() {
           {/* Galería de fotos - Cuadrícula con 3 fotos por niña */}
           {(() => { // Usamos una IIFE para definir la constante dentro del renderizado
             const allPhotos = [
-              { src: "/emma1.jpg", alt: "Emma 1" },
+              { src: "/emma6.jpg", alt: "Emma 1" },
               { src: "/emma2.jpg", alt: "Emma 2" },
-              { src: "/emma6.jpg", alt: "Emma 3" },
+              { src: "/emma1.jpg", alt: "Emma 3" },
               { src: "/emma4.jpg", alt: "Emma 4" },
               { src: "/emma5.jpg", alt: "Emma 5" },
               { src: "/pau1.jpg", alt: "Paulina 1" },
