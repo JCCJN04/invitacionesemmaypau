@@ -101,9 +101,13 @@ export default function PremiumQuinceaneraInvitation() {
     { src: "/emma1.jpg", alt: "Emma 1" },
     { src: "/emma2.jpg", alt: "Emma 2" },
     { src: "/emma3.jpg", alt: "Emma 3" },
-    { src: "/pau1.jpg", alt: "Paulina 1" },
+    { src: "/emma4.jpg", alt: "Emma 4" },
+    { src: "/emma5.jpg", alt: "Emma 5" },
+    { src: "/pau3.jpg", alt: "Paulina 1" },
     { src: "/pau2.jpg", alt: "Paulina 2" },
-    { src: "/pau3.jpg", alt: "Paulina 3" },
+    { src: "/pau1.jpg", alt: "Paulina 3" },
+    { src: "/pau4.jpg", alt: "Paulina 4" },
+    { src: "/pau5.jpg", alt: "Paulina 5" },
   ];
 
 
@@ -178,8 +182,6 @@ export default function PremiumQuinceaneraInvitation() {
                           flex flex-col items-center text-center animate-fade-in"
                style={{ minHeight: '400px' }}> {/* Ajusta minHeight para la tarjeta */}
 
-            {/* Sello Dorado - usar placeholder-logo.png como ejemplo */}
-            <img src="/placeholder-logo.png" alt="Sello Invitación" className="w-20 h-20 -mt-16 object-contain" />
 
             {/* Nombres de las Quinceañeras - Mayte equivalente (AHORA ES UNA IMAGEN) */}
             {/* Se reemplaza el h1 por la imagen directamente */}
@@ -248,20 +250,19 @@ export default function PremiumQuinceaneraInvitation() {
       <div className="container mx-auto px-6 py-12 relative z-10 max-w-4xl">
         {/* Elegant Photo Gallery */}
         <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl font-playfair text-slate-700 mb-2">Nuestras Quinceañeras</h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto"></div>
-          </div>
-
           {/* Galería de fotos - Cuadrícula con 3 fotos por niña */}
           {(() => { // Usamos una IIFE para definir la constante dentro del renderizado
             const allPhotos = [
               { src: "/emma1.jpg", alt: "Emma 1" },
               { src: "/emma2.jpg", alt: "Emma 2" },
-              { src: "/emma3.jpg", alt: "Emma 3" },
+              { src: "/emma6.jpg", alt: "Emma 3" },
+              { src: "/emma4.jpg", alt: "Emma 4" },
+              { src: "/emma5.jpg", alt: "Emma 5" },
               { src: "/pau1.jpg", alt: "Paulina 1" },
               { src: "/pau2.jpg", alt: "Paulina 2" },
               { src: "/pau3.jpg", alt: "Paulina 3" },
+              { src: "/pau4.jpg", alt: "Paulina 4" },
+              { src: "/pau5.jpg", alt: "Paulina 5" },
             ];
 
             return (
@@ -312,7 +313,7 @@ export default function PremiumQuinceaneraInvitation() {
                   <div className="flex items-center gap-3 text-slate-600">
                     <MapPin className="w-4 h-4 text-rose-500" />
                     <span className="font-playfair">
-                      Templo Expiatorio de nuestra señora del Carmen
+                      Parroquia nuestra señora del Carmen
                     </span>
                   </div>
                   <div className="flex items-center gap-3 text-slate-600">
@@ -403,9 +404,6 @@ export default function PremiumQuinceaneraInvitation() {
                 />
               </div>
               <p className="text-lg font-playfair text-slate-700 mb-6">Formal</p>
-              <p className="text-sm font-playfair text-slate-600 leading-relaxed">
-                Evitar colores dorados
-              </p>
             </CardContent>
           </Card>
         </section>
