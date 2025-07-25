@@ -178,7 +178,7 @@ export default function PremiumQuinceaneraInvitation() {
 
           {/* La "Tarjeta Blanca" superpuesta, que contiene el texto de la invitación */}
           {/* Reducido max-w para que el fondo del sobre sea visible a los lados */}
-          <div className="relative z-10 bg-white rounded-xl shadow-2xl p-6 md:p-10 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto
+          <div className="relative z-10 bg-white rounded-xl shadow-2xl p-10 md:p-10 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto
                           flex flex-col items-center text-center animate-fade-in"
                style={{ minHeight: '400px' }}> {/* Ajusta minHeight para la tarjeta */}
 
@@ -188,7 +188,7 @@ export default function PremiumQuinceaneraInvitation() {
             <img src="/emmaypau.png" alt="emma y pau XV Aniversario" className="w-48 mb-4 object-contain" />
 
             {/* Texto "Con la Bendición de Dios..." */}
-            <p className="text-base font-dancing text-slate-700 leading-relaxed mb-6">
+            <p className="text-sm font-playfair uppercase text-slate-600 mb-4">
               Dando gracias a Dios por la vida y por el amor que nuestra familia nos ha dado, queremos compartir con ustedes
               este momento tan especial para nosotras.
             </p>
@@ -218,9 +218,9 @@ export default function PremiumQuinceaneraInvitation() {
 
         <div className="relative z-10 text-center text-white">
           {/* Texto "Mi Gran Día" */}
-          <p className="text-2xl md:text-4xl font-great-vibes mb-2">Nuestro Gran Día</p>
+          <p className="text-3xl md:text-5xl font-great-vibes mb-2">Nuestro Gran Día</p>
           {/* Fecha de la quinceañera */}
-          <p className="text-lg md:text-2xl font-playfair mb-8">viernes 13 septiembre 2025</p> {/* Ajusta la fecha real */}
+          <p className="text-xl md:text-3xl font-playfair mb-8">Sabado 13 septiembre 2025</p> {/* Ajusta la fecha real */}
 
           {/* Grid del Contador */}
           <div className="grid grid-cols-4 gap-4 max-w-xl mx-auto">
@@ -313,7 +313,7 @@ export default function PremiumQuinceaneraInvitation() {
                   <div className="flex items-center gap-3 text-slate-600">
                     <MapPin className="w-4 h-4 text-rose-500" />
                     <span className="font-playfair">
-                      Parroquia nuestra señora del Carmen
+                      Parroquia Nuestra Señora Del Carmen
                     </span>
                   </div>
                   <div className="flex items-center gap-3 text-slate-600">
@@ -554,24 +554,25 @@ export default function PremiumQuinceaneraInvitation() {
         </section>
 
         {/* Elegant Footer */}
+        {/* Elegant Footer */}
         <footer className="text-center py-12 border-t border-slate-200/50">
           <div className="mb-6">
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto mb-4"></div>
-            <p className="text-lg font-playfair text-slate-700 mb-2">
+            <p className="text-lg font-dancing text-slate-700 mb-2">
               Esperamos compartir este momento especial con ustedes
             </p>
-            <p className="text-sm font-playfair text-slate-500 tracking-wide">
+            <p className="text-lg font-dancing text-slate-700 mb-2"> {/* CAMBIADO A font-dancing y text-slate-700 */}
               Con cariño, Familia Mendoza Castillo
             </p>
           </div>
           <div className="flex justify-center gap-6 text-slate-400">
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4" />
-              <span className="text-sm font-playfair">+81 1123 0163</span>
+              <span className="text-sm font-dancing text-slate-700">+81 1123 0163</span> {/* CAMBIADO A font-dancing y text-slate-700 */}
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
-              <span className="text-sm font-playfair">castillo.sandra.anaya@gmail.com</span>
+              <span className="text-sm font-dancing text-slate-700">castillo.sandra.anaya@gmail.com</span> {/* CAMBIADO A font-dancing y text-slate-700 */}
             </div>
           </div>
         </footer>
