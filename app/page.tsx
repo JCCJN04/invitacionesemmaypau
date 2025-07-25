@@ -503,6 +503,7 @@ export default function PremiumQuinceaneraInvitation() {
         </section>
 
         {/* Premium RSVP Form */}
+        {/* Premium RSVP Form */}
         <section className="mb-16">
           <Card className="bg-white/90 backdrop-blur-sm border-0 shadow-xl max-w-lg mx-auto">
             <CardContent className="p-8">
@@ -510,7 +511,7 @@ export default function PremiumQuinceaneraInvitation() {
                 <h3 className="text-xl font-playfair text-slate-800 mb-2">Confirmación de Asistencia</h3>
                 <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto mb-4"></div>
                 <p className="text-sm font-playfair text-slate-600">
-                  Por favor confirme su asistencia antes del 20 de agosto de 2025.
+                  Por favor confirme su asistencia antes del 20 de Agosto de 2025.
                 </p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -542,7 +543,8 @@ export default function PremiumQuinceaneraInvitation() {
                 </div>
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-light h-12 shadow-lg hover:shadow-xl transition-all duration-300 tracking-wide"
+                  className="w-full bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-light h-12 shadow-lg hover:shadow-xl transition-all duration-300 tracking-wide
+                            active:scale-98 active:shadow-inner" // ¡AÑADIDAS CLASES DE ACCIÓN AQUÍ!
                 >
                   <Users className="w-4 h-4 mr-2" />
                   Confirmar Asistencia
@@ -553,25 +555,24 @@ export default function PremiumQuinceaneraInvitation() {
         </section>
 
         {/* Elegant Footer */}
-        {/* Elegant Footer */}
         <footer className="text-center py-12 border-t border-slate-200/50">
           <div className="mb-6">
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto mb-4"></div>
-            <p className="text-lg font-dancing text-slate-700 mb-2">
+            <p className="text-lg font-playfair text-slate-700 mb-2"> {/* CAMBIADO A font-playfair */}
               Esperamos compartir este momento especial con ustedes
             </p>
-            <p className="text-lg font-dancing text-slate-700 mb-2"> {/* CAMBIADO A font-dancing y text-slate-700 */}
+            <p className="text-lg font-playfair text-slate-700 mb-2"> {/* CAMBIADO A font-playfair */}
               Con cariño, Familia Mendoza Castillo
             </p>
           </div>
           <div className="flex justify-center gap-6 text-slate-400">
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4" />
-              <span className="text-sm font-dancing text-slate-700">+81 1123 0163</span> {/* CAMBIADO A font-dancing y text-slate-700 */}
+              <span className="text-sm font-playfair text-slate-700">+81 1123 0163</span> {/* CAMBIADO A font-playfair */}
             </div>
             <div className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
-              <span className="text-sm font-dancing text-slate-700">castillo.sandra.anaya@gmail.com</span> {/* CAMBIADO A font-dancing y text-slate-700 */}
+              <span className="text-sm font-playfair">castillo.sandra.anaya@gmail.com</span> {/* CAMBIADO A font-playfair */}
             </div>
           </div>
         </footer>
