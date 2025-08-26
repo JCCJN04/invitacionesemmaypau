@@ -511,7 +511,7 @@ export default function PremiumQuinceaneraInvitation() {
                 <h3 className="text-xl font-playfair text-slate-800 mb-2">Confirmación de Asistencia</h3>
                 <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto mb-4"></div>
                 <p className="text-sm font-playfair text-slate-600">
-                  Por favor confirme su asistencia antes del 20 de Agosto de 2025.
+                  Por favor confirme su asistencia.
                 </p>
               </div>
               <form onSubmit={handleSubmit} className="space-y-6">
