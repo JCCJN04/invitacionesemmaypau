@@ -28,7 +28,7 @@ export default function PremiumQuinceaneraInvitation() {
   const [showInvitationContent, setShowInvitationContent] = useState(false);
   const [showViewInvitationButton, setShowViewInvitationButton] = useState(false);
 
-  const targetDate = new Date('2025-09-13T00:00:00'); //
+  const targetDate = new Date('2025-09-13T19:30:00-06:00');
 
   // Lógica para la cuenta regresiva
   useEffect(() => {
