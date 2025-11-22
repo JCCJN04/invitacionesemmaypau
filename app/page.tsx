@@ -558,22 +558,12 @@ export default function PremiumQuinceaneraInvitation() {
         <footer className="text-center py-12 border-t border-slate-200/50">
           <div className="mb-6">
             <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-rose-400 to-transparent mx-auto mb-4"></div>
-            <p className="text-lg font-playfair text-slate-700 mb-2"> {/* CAMBIADO A font-playfair */}
+            <p className="text-lg font-playfair text-slate-700 mb-2">
               Esperamos compartir este momento especial con ustedes
             </p>
-            <p className="text-lg font-playfair text-slate-700 mb-2"> {/* CAMBIADO A font-playfair */}
+            <p className="text-lg font-playfair text-slate-700 mb-2">
               Con cariño, Familia Mendoza Castillo
             </p>
-          </div>
-          <div className="flex justify-center gap-6 text-slate-400">
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span className="text-sm font-playfair text-slate-700">+81 1123 0163</span> {/* CAMBIADO A font-playfair */}
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4" />
-              <span className="text-sm font-playfair">castillo.sandra.anaya@gmail.com</span> {/* CAMBIADO A font-playfair */}
-            </div>
           </div>
         </footer>
       </div>
